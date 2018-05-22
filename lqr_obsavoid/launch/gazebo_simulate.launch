@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<launch>
+
+
+  <!--Gazebo visualization-->
+  <include file="$(find husky_gazebo)/launch/huskywithvelo_empty_world.launch"/>
+
+<!--Rviz Visualization-->
+<include file="$(find husky_viz)/launch/view_robot.launch"/>
+
+<!--robot_state_publisher node-->
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
+      <!--<remap from="robot_description" to="different_robot_description" />
+      <remap from="joint_states" to="different_joint_states" />-->
+    </node>
+
+
+
+  <node pkg="um6" type="um6_driver" name="um6_driver_enu" output="screen">
+  </node>
+
+
+
+</launch>
